@@ -6,7 +6,7 @@ const Book = ({ book }) => {
   const {bookId, rating, category, author, image, bookName, tags } = book;
 
   return (
-    <Link to={`bookDetails/${bookId}`}>
+    <Link to={`/bookDetails/${bookId}`}>
       <div className="card shadow-xl border-white ">
         <figure className="bg-slate-700 py-6">
           <img src={image} className="h-[200px] rounded-md" alt={bookName} />

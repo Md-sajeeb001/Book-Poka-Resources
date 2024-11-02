@@ -1,5 +1,5 @@
 import { useLoaderData, useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { setReadList } from "../utilits/utilitis";
 
 const BookDetails = () => {
   const bookId = useParams();
@@ -22,11 +22,18 @@ const BookDetails = () => {
     publisher,
   } = bId;
 
+  const handelReadList = (id) => {
+    setReadList(id);
+  };
+
   return (
     <div className="hero bg-base-200 my-12">
       <div className="hero-content flex-col lg:flex-row grid grid-cols-2">
         <div className="">
-          <img src={image} className="h-[711px] w-[500px] p-[74px] bg-slate-600 rounded-lg shadow-2xl" />
+          <img
+            src={image}
+            className="h-[711px] w-[500px] p-[74px] bg-slate-600 rounded-lg shadow-2xl"
+          />
         </div>
 
         <div className="space-y-4">
@@ -70,8 +77,12 @@ const BookDetails = () => {
             </p>
           </div>
 
-
-          <Link to={`/list-books/${noId}`}><button className="btn btn-outline text-white ">Read</button></Link>
+          <button
+            onClick={() => handelReadList(noId)}
+            className="btn btn-outline text-white "
+          >
+            Read
+          </button>
           <button className="btn bg-sky-300 text-white ml-6">Wishlist</button>
         </div>
       </div>
